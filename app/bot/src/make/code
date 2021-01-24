@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+makeCode() {
+  optInstall="false"
+
+  active="false"
+  avatarURL="code"
+  avatarURLSTR=${avatarURL// /'__'}
+
+  name="Visual Studio Code"
+  nameSTR=${name// /'__'}
+
+  info="Code editing. Redefined."
+  infoSTR=${info// /'__'}
+
+  site="https://code.visualstudio.com/"
+  siteSTR=${site// /'__'}
+
+  status=${NOT_FOUND}
+  version=""
+
+  if ( code --version > /dev/null 2>&1 ); then
+    active="true"
+    status=${INSTALLED}
+    version=$(code --version 2>&1 | head -n 1)
+  fi
+
+  if [ "$1" == "-i" ]; then
+    status=${INSTALLING}
+    optInstall="true"
+  fi
+
+  statusSTR=${status// /'__'}
+  versionSTR=${version// /'__'}
+
+  query="active=${active}&avatarURL=${avatarURLSTR}&name=${nameSTR}&info=${infoSTR}&site=${siteSTR}&status=${statusSTR}&version=${versionSTR}"
+
+  requestHTTPAddNewTool ${query}
+
+  if [ "${optInstall}" == "true" ]; then
+    installCode
+  fi
+}
+
+installCode() {
+  # remove
+  # sudo dnf remove code -y
+
+  # install
+  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+  sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+  sudo dnf check-update
+  sudo dnf install code -y
+  echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+  makeCode
+}

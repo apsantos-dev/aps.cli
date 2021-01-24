@@ -1,0 +1,47 @@
+.page {
+  margin-top: 100px;
+  animation: fadeIn 2s normal;
+
+  &.dark {
+    background-image: linear-gradient(
+      to right bottom,
+      #19212e,
+      #1c2331,
+      #1f2633,
+      #222836,
+      #252b39,
+      #262c3a,
+      #282e3c,
+      #292f3d,
+      #292f3d,
+      #292f3d,
+      #292f3d,
+      #292f3d
+    );
+  }
+
+  & hr.custom {
+    color: var(--color-line-primary-dark);
+    margin: 10px 20px 20px;
+  }
+
+  & .container {
+    & main {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-direction;
+
+      animation: fadeIn 2s normal;
+
+      margin: 0 auto;
+      padding: 20px 20px 10px;
+
+      & ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        list-style: none;
+      }
+    }
+  }
+}

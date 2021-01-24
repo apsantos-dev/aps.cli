@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+# datetime
+_DATE=`date '+%Y-%m-%d %H:%M:%S'`
+_DATE_LOG=`date '+%Y-%m-%d_%H:%M:%S'`
+_DATE_CUSTOM=`date '+%B %d, %Y - %H:%M:%S'`
+_TIME_CUSTOM=`date '+%H%M%S'`
+_DAY=`date '+%d'`
+_MONTH=`date '+%B'`
+_YEAR=`date '+%Y'`

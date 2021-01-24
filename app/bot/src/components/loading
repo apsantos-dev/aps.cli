@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+readonly _time_loading=".8"
+
+loading() {
+  local readonly message=$1
+
+  echo -e "" >&2
+  echo -e "${_sp}${_ar} ${message} \n" >&2
+
+  echo -en "${_sp4}${_gy}▄ ▄ ▄ ▄ ▄"; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_we}▆"; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_gy}▄ ${_we}▆"; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_gy}▄ ▄ ${_we}▇"; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_gy}▄ ▄ ▄ ${_we}▆"; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_gy}▄ ▄ ▄ ▄ ${_we}▆"; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_gy}▄ ▄ ▄ ▄ ▄"; echo -en "\r"
+
+  echo -en "${_sp4}${_be}▇"; sleep .2; echo -en "\r"
+  echo -en "${_sp4}${_be}▇ ▇"; sleep .2; echo -en "\r"
+  echo -en "${_sp4}${_be}▇ ▇ ▇"; sleep .2; echo -en "\r"
+  echo -en "${_sp4}${_be}▇ ▇ ▇ ▇"; sleep .2; echo -en "\r"
+  echo -en "${_sp4}${_be}▇ ▇ ▇ ▇ ▇${_rs}"; echo -en "\r"
+
+  echo -en "${_sp4}${_gn}▇ ▇ ▇ ▇ ▇ ${_su} ${_rs}";
+
+  clear
+}
+
+loading_custom() {
+  local readonly message=$1
+
+  echo -e "" >&2
+  echo -e "${_sp}${_ar} ${message} ${_rs} \n" >&2
+
+  echo -en "${_sp4}${_gy}▄ ▄ ▄ ▄ ▄ "; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_we}▆"; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_gy}▄ ▄ ▄ ${_we}▆"; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_gy}▄ ${_we}▆"; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_gy}▄ ▄ ▄ ▄ ${_we}▆"; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_gy}▄ ▄ ${_we}▇"; sleep ${_time_loading}; echo -en "\r"
+  echo -en "${_sp4}${_gy}▄ ▄ ▄ ▄ ▄"; echo -en "\r"
+
+  echo -en "${_sp4}${_lg}▇"; sleep .2; echo -en "\r"
+  echo -en "${_sp4}${_lg}▇ ▇"; sleep .2; echo -en "\r"
+  echo -en "${_sp4}${_lg}▇ ▇ ▇"; sleep .2; echo -en "\r"
+  echo -en "${_sp4}${_lg}▇ ▇ ▇ ▇"; sleep .2; echo -en "\r"
+  echo -en "${_sp4}${_lg}▇ ▇ ▇ ▇ ▇ ${_rs}"; echo -en "\r"
+
+  echo -en "${_sp4}${_lg} ${_rs}";
+}
+
+loading_simple() {
+  local readonly message=$1
+
+  echo -e "" >&2
+  echo -en "${_sp}${_we}${_ar} ${message}${_sp}" >&2
+  echo -en "▪ "; sleep ${_time_loading};
+  echo -en "▪ "; sleep ${_time_loading};
+  echo -en "▪ "; sleep ${_time_loading};
+  echo -en "▪ "; sleep ${_time_loading};
+  echo -en "▪ "; sleep ${_time_loading};
+
+  clear
+}

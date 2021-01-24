@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+detectArch() {
+	case $(uname -m) in
+    *64) echo "64-bit" ;;
+    *) echo "32-bit" ;;
+	esac
+}
+
+detectDistro() {
+	if [ -f /etc/lsb-release ]; then
+		(. /etc/lsb-release; echo $DISTRIB_ID | tr '[A-Z]' '[a-z]')
+	elif [ -f /etc/os-release ]; then
+		(. /etc/os-release; echo $NAME | tr '[A-Z]' '[a-z]')
+	elif [ -f /etc/debian_version ]; then
+		(. /etc/debian_version; echo $NAME | tr '[A-Z]' '[a-z]')
+	else
+		# Generic fallback
+		throw_new_error \
+			"Error when trying to get system information" \
+			"Check your system's official website"
+	fi
+}
+
+detectRelease() {
+	if [ -f /etc/lsb-release ]; then
+		(. /etc/lsb-release; echo $DISTRIB_RELEASE)
+	elif [ -f /etc/os-release ]; then
+		(. /etc/os-release; echo $VERSION_ID)
+	elif [ -f /etc/debian_version ]; then
+		(. /etc/debian_version; echo $VERSION_ID)
+	else
+		# Generic fallback
+		throw_new_error \
+			"Error when trying to get system information" \
+			"Check your system's official website"
+	fi
+}
+
+detectSite() {
+	if [ -f /etc/lsb-release ]; then
+		(. /etc/lsb-release; echo $HOME_URL)
+	elif [ -f /etc/os-release ]; then
+		(. /etc/os-release; echo $HOME_URL)
+	elif [ -f /etc/debian_version ]; then
+		(. /etc/debian_version; echo $HOME_URL)
+	else
+		# Generic fallback
+		throw_new_error \
+			"Error when trying to get system information" \
+			"Check your system's official website"
+	fi
+}
+
+detectVariant() {
+	if [ -f /etc/lsb-release ]; then
+		(. /etc/lsb-release; echo $VARIANT)
+	elif [ -f /etc/os-release ]; then
+		(. /etc/os-release; echo $VARIANT)
+	elif [ -f /etc/debian_version ]; then
+		(. /etc/debian_version; echo $VARIANT)
+	else
+		# Generic fallback
+		throw_new_error \
+			"Error when trying to get system information" \
+			"Check your system's official website"
+	fi
+}
+
+detectVersion() {
+	if [ -f /etc/lsb-release ]; then
+		(. /etc/lsb-release; echo $VERSION)
+	elif [ -f /etc/os-release ]; then
+		(. /etc/os-release; echo $VERSION)
+	elif [ -f /etc/debian_version ]; then
+		(. /etc/debian_version; echo $VERSION)
+	else
+		# Generic fallback
+		uname -r
+	fi
+}
+

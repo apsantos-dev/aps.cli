@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+makeGimp() {
+  active="false"
+  avatarURL="gimp"
+  avatarURLSTR=${avatarURL// /'__'}
+
+  name="GNU Image Manipulation Program"
+  nameSTR=${name// /'__'}
+
+  info="The Free and Open Source Image Editor"
+  infoSTR=${info// /'__'}
+
+  site="https://www.gimp.org/"
+  siteSTR=${site// /'__'}
+
+  status=${NOT_FOUND}
+  version=""
+
+  if ( gimp --version > /dev/null 2>&1 ); then
+    active="true"
+    status=${INSTALLED}
+    version=$(gimp --version 2>&1 | head -n 1)
+  fi
+
+  statusSTR=${status// /'__'}
+  versionSTR=${version// /'__'}
+
+  query="active=${active}&avatarURL=${avatarURLSTR}&name=${nameSTR}&info=${infoSTR}&site=${siteSTR}&status=${status}&version=${versionSTR}"
+
+  requestHTTPAddNewTool ${query}
+}

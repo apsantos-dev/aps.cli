@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+# Environment variable
+source ${pwdCLI}/.env
+
+# check Node.js
+source ${pwdCLI}/src/script/node/index
+
+# CLI data
+source ${pwdCLI}/src/services/data
+source ${pwdCLI}/src/services/wget
+
+# constants
+for constant in $(ls ${pwdCLI}/src/shared/domains/constants); do
+  source ${pwdCLI}/src/shared/domains/constants/${constant}
+done
+
+# tools request
+source ${pwdCLI}/src/modules/private/tools/services/request/index
+
+# components
+for component in $(ls ${pwdCLI}/src/components); do
+  source ${pwdCLI}/src/components/${component}
+done
+
+# make
+for make in $(ls ${pwdCLI}/src/make); do
+  source ${pwdCLI}/src/make/${make}
+done
+
+# utils
+for util in $(ls ${pwdCLI}/src/utils); do
+  source ${pwdCLI}/src/utils/${util}
+done

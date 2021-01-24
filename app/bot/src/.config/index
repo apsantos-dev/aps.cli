@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+source ${pwdCLI}/src/.config/colors
+source ${pwdCLI}/src/.config/datetime
+source ${pwdCLI}/src/.config/distro

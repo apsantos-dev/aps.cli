@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+# colors and icons
+_bk="\e[5m"              # blink
+_be="\e[38;5;6m"         # blue
+_bs="\e[36;1m"           # blue special
+_gy="\e[30;1m"           # gray
+_dy="\e[30;1m"           # darkGray
+_ly="\e[37m"             # lightGray
+_gn="\e[0;32m"           # green
+_lg="\e[32;1m"           # lightGreen
+_rd="\e[0;31m"           # red
+_we="\e[1;37m"           # white
+_ws="\e[37;1m"           # white special
+_yw="\e[1;33m"           # yellow
+_de="\e[0;34m"           # darkBlue
+_lb="\e[34;1m"           # lightBlue
+_pe="\e[0;35m"           # purple
+_lp="\e[1;35m"           # lightPurple
+_lr="\e[1;31m"           # lightRed
+_ad="+"                  # add
+_ar="➜"                 # arrow
+_da="✘"                 # danger
+_dm="\e[2m"              # dim
+_rs="\e[0m"              # reset color
+_he="\e[8m"              # hide
+_in="!"                  # info
+_ic="\e[3m"              # italic
+_ld="\e[2m"              # loading
+_sp="  "                 # space 2x
+_sp3="   "               # space 3x
+_sp4="    "              # space 4x
+_su="✔"                  # success
+_ue="\e[4m"              # underline
+_line="___________________________________________________________________"
+
+_getRGBcolor() {
+  local readonly number=$1
+  local readonly regExp_only_number='^[0-9]+$'
+
+  if (( ${number} < 0 || ${number} > 255 )); then
+    echo -e "Error: Only numbers 0 through 255 allowed" >&2
+    exit 1
+  fi
+
+  if [[ "${header_title_size_check}" > 0 ]]; then
+    for (( i = 0; i < ${header_title_size_check}; i++)); do
+      header_title_substr+=" "
+    done
+  fi
+
+  if ! [[ ${number} =~ ${regExp_only_number} ]]; then
+    echo -e "Error: Number not provided" >&2
+    exit 1
+  fi
+
+  echo -e "\e[0;38;5;${number}m"
+}
+
+# theme
+readonly theme_danger=$(_getRGBcolor 9)
+readonly theme_dark=$(_getRGBcolor 0)
+readonly theme_dark_light=$(_getRGBcolor 250)
+readonly theme_help=$(_getRGBcolor 50)
+readonly theme_info=$(_getRGBcolor 14)
+readonly theme_success=$(_getRGBcolor 37)
+readonly theme_warning=$(_getRGBcolor 221)

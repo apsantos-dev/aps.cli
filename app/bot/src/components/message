@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+message_display() {
+  setterm -cursor off
+  echo -e "\n${_sp}${@} \r \n " >&2
+
+  setterm -cursor on
+  exit 0
+}
+
+message_success() {
+  setterm -cursor off
+  loading_simple "Aguarde"
+
+  echo -e "" >&2
+  echo -e "${_sp}${_bs}${_su} $1 ${_rs} \n" >&2
+  echo -e "${_sp}${_yw}${_ar} $2 ${_rs} \n" >&2
+  setterm -cursor on
+  exit 0
+}
+
+throw_new_error() {
+  setterm -cursor off
+  loading_simple "Aguarde"
+
+  echo -e "" >&2
+  echo -e "${_sp}${_rd}${_da} $1 ${_rs} \n " >&2
+  echo -e "${_sp}${_yw}${_ar} $2 ${_rs} \n" >&2
+
+  setterm -cursor on
+  exit 1
+}

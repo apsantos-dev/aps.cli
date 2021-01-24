@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+makeNpm() {
+  active="true"
+  avatarURL="npm"
+  avatarURLSTR=${avatarURL// /'__'}
+
+  name="NPM"
+  nameSTR=${name// /'__'}
+
+  info="Build amazing things"
+  infoSTR=${info// /'__'}
+
+  site="https://www.npmjs.com/"
+  siteSTR=${site// /'__'}
+
+  status="Installed"
+
+  version=$(npm --version 2>&1 | head -n 1)
+  versionSTR=${version// /'__'}
+
+  query="active=${active}&avatarURL=${avatarURLSTR}&name=${nameSTR}&info=${infoSTR}&site=${siteSTR}&status=${status}&version=${versionSTR}"
+
+  requestHTTPAddNewTool ${query}
+}

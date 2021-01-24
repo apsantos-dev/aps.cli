@@ -1,0 +1,58 @@
+{
+  "name": "APSantos CLI",
+  "description": "CLI for project management.",
+  "company": {
+    "name": "APSantos Desenvolvimento de Sistemas",
+    "author": "Anderson Pires",
+    "email": "apsantos.dev@gmail.com"
+  },
+  "keywords": [
+    "apsantos",
+    "cli",
+    "project",
+    "management"
+  ],
+  "repository": {
+    "type": "git",
+    "title": "Project on GitHub",
+    "url": "https://github.com/apsantos-dev/aps.cli",
+    "issues": "https://github.com/apsantos-dev/aps.cli/issues",
+    "release": {
+      "status": "Beta Release in: January 20, 2021",
+      "version": "v0.0.1-beta"
+    },
+    "license": {
+      "type": "The MIT License (MIT)",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "cli": {
+    "system": {
+      "data": "data.json",
+      "loading": "Loading",
+      "processing": "Processing",
+      "program": "cli.sh",
+      "sleep": 1.2,
+      "sleepInfo": "The system was configured with a 1.2 second interval between tasks. \n  We chose this way so that you follow the steps of each task.",
+      "divider": "5",
+      "tasksTitle": "Displaying Tasks Performed",
+      "tasksSubtitle": "Displaying details of all tasks performed.",
+      "separator": "---"
+    },
+    "help": {
+      "title": "General Commands Manual",
+      "subtitle": "Here's how to use the system in a simple and practical way.",
+      "option": {
+        "a": "About the system",
+        "h": "Help System",
+        "u": "Update default project structure"
+      },
+      "git": {
+        "title": "Tasks using Git and GitHub",
+        "subtitle": "Here's how to use the system in a simple and practical way.",
+        "init": "Global project settings",
+        "update": "Sync changes you make in a fork."
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+makeYarn() {
+  optInstall="false"
+
+  active="false"
+  avatarURL="yarn"
+  avatarURLSTR=${avatarURL// /'__'}
+
+  name="Yarn"
+  nameSTR=${name// /'__'}
+
+  info="Safe, stable, reproducible projects"
+  infoSTR=${info// /'__'}
+
+  site="https://yarnpkg.com/"
+  siteSTR=${site// /'__'}
+
+  status=${NOT_FOUND}
+  version=""
+
+  if ( yarn --version > /dev/null 2>&1 ); then
+    active="true"
+    status=${INSTALLED}
+    version=$(yarn --version 2>&1 | head -n 1)
+  fi
+
+  if [ "$1" == "-i" ]; then
+    status=${INSTALLING}
+    optInstall="true"
+  fi
+
+  statusSTR=${status// /'__'}
+  versionSTR=${version// /'__'}
+
+  query="active=${active}&avatarURL=${avatarURLSTR}&name=${nameSTR}&info=${infoSTR}&site=${siteSTR}&status=${statusSTR}&version=${versionSTR}"
+
+  requestHTTPAddNewTool ${query}
+
+  if [ "${optInstall}" == "true" ]; then
+    installPython
+  fi
+}
+
+installPython() {
+  # remove
+  sudo npm uninstall yarn -g
+
+  # install
+  sudo dnf install yarn -y
+
+  makeYarn
+}

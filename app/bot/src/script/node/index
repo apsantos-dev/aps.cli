@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+if ( ! node --version > /dev/null 2>&1 ); then
+  sudo dnf install gcc-c++ make -y
+  curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash -
+  sudo dnf install nodejs -y
+
+  sudo npm cache clean -f
+  sudo npm install n -g
+  sudo n stable
+fi
+
+clear

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+# writes the current location of the CLI request
+pwdCurrent=`pwd`
+
+# opens the cli folder to avoid reading errors in the file: data.json
+readonly pwdCLI=${pwdCurrent}
+
+# Settings
+source ${pwdCLI}/src/.config/index
+
+# Services
+source ${pwdCLI}/src/services/api
+
+readonly option_cli=$1
+readonly params_cli=$2
+
+case ${option_cli} in
+  code) makeCode ${params_cli} ;;
+  gimp) makeGimp ;;
+  git) makeGit ${params_cli} ;;
+  node) makeNode && makeNpm ;;
+  python) makePython ${params_cli} ;;
+  system) makeSystem ;;
+  yarn) makeYarn ${params_cli} ;;
+
+  -a|--all)
+    makeCode \\
+    makeGimp \\
+    makeGit \\
+    makeNode && makeNpm \\
+    makePython \\
+    makeSystem \\
+    makeYarn \\
+    ;;
+    # toast "" ;;
+esac

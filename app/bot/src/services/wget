@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+readonly WGET=/usr/bin/wget
+
+# verifies that the wget program is available
+if [ ! -x ${WGET} ]; then
+  sudo dnf install wget -y
+fi

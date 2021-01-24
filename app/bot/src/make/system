@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+makeSystem() {
+  active="true"
+  avatarURL=$(detectDistro)
+  avatarURLSTR=${avatarURL// /'__'}
+
+  name=$(detectDistro)
+  nameSTR=${name// /'__'}
+
+  info=$(detectVariant)
+  infoSTR=${info// /'__'}
+
+  site=$(detectSite)
+  siteSTR=${site// /'__'}
+
+  status="Installed"
+
+  version=$(detectRelease)
+  versionSTR=${version// /'__'}
+
+  query="active=${active}&avatarURL=${avatarURLSTR}&name=${nameSTR}&info=${infoSTR}&site=${siteSTR}&status=${status}&version=${versionSTR}"
+
+  requestHTTPAddNewTool ${query}
+}

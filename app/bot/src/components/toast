@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+toast() {
+  local title="APSantos System Message ${_in}"
+  local subtitle="${_su} Task completed successfully"
+  local readonly message=${1}
+  local readonly avatar=${pwdCLI}/src/assets/images/favicon.ico
+
+  local readonly error=$2
+
+  if [[ -n "${error}" ]]; then
+    subtitle="${_da} The task could not be completed"
+  fi
+
+  notify-send \
+    "${title}" \
+    "\n${subtitle} \n${_ar} ${message}" \
+    -u critical \
+    -i ${avatar}
+}

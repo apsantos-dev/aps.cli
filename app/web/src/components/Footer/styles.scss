@@ -1,0 +1,225 @@
+.page-footer {
+  animation: fadeIn 2s normal;
+  color: var(--color-text-title);
+  margin-top: 40px;
+  margin-bottom: 100px;
+
+  & .info {
+    & h2 {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+/**
+ * Variables responsible for icon formatting. In this example, we have only
+ * these variables, however, in a context with many variables we recommend
+ * that you name according to your project.
+ */
+$circular: 50%;
+$circularArea: 40px;
+$squareArea: 40px;
+$square: 4px;
+
+/**
+ *  Mixin social network icon
+ *
+ *  @param {$borderRadius} It receives one or more values for the class:
+ *    border-radius
+ *  @param {$area} It gets a single value for the classes: width, height
+ *    and line-height
+ *
+ *  @input: (4px, 35px);
+ *
+ *  @output
+ *    ...
+ *    border-radius: 4px;
+ *    height: 35px;
+ *    line-height: 35px;
+ *    width: 35px;
+ *    ...
+ */
+@mixin socialNetworkIcon($borderRadius, $area) {
+  border: none;
+  border-radius: $borderRadius;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+  font-size: 1.1em;
+  height: $area;
+  line-height: $area;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: $area;
+
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+/**
+ *  Mixin fa custom :before
+ *
+ *  @param {$backgroundColor} It gets a single value for the classes:
+ *    background-color
+ *
+ *  @param {$borderRadius} It receives one or more values for the class:
+ *    border-radius
+ *
+ *  @input: (rgba(255, 255, 255, .1), 2px);
+ *
+ *  @output
+ *    background-color: rgba(255, 255, 255, .1);
+ *    border-radius: 2px;
+ *    ...
+ */
+@mixin faCustomBefore($backgroundColor, $borderRadius) {
+  background-color: $backgroundColor;
+  border-radius: $borderRadius;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  position: absolute;
+
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
+/* Standard icons format */
+.fa-standard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  /* Circular icon circular. */
+  &_circular {
+    @include socialNetworkIcon($circular, $circularArea);
+
+    &:before {
+      @include faCustomBefore(rgba(255, 255, 255, 0.1), $circular);
+    }
+
+    &:active,
+    &:hover {
+      border-radius: $circular;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+  }
+
+  /* Square icon format. */
+  &_square {
+    @include socialNetworkIcon($square, $squareArea);
+
+    &:before {
+      @include faCustomBefore(rgba(255, 255, 255, 0.1), $square);
+    }
+
+    &:active,
+    &:hover {
+      border-radius: $square;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+  }
+
+  & a {
+    animation: fadeIn 2s normal;
+    text-decoration: none;
+  }
+}
+
+/* Standard icon structure in circular format. */
+.fa_circular {
+  @extend .fa-standard_circular;
+
+  &:active:before,
+  &:hover:before {
+    width: 100%;
+  }
+}
+
+/* Standard icon structure in square format. */
+.fa_square {
+  @extend .fa-standard_square;
+
+  &:hover:before {
+    width: 100%;
+  }
+}
+
+/* specific facebook brand color */
+.fa_circula.facebook,
+.fa_square.facebook {
+  background: rgba(65, 94, 155, 1);
+
+  &:after {
+    font-family: FontAwesome;
+    content: '\f09a';
+  }
+}
+
+/* specific github brand color */
+.fa_circula.github,
+.fa_square.github {
+  background: rgba(34, 34, 34, 1);
+
+  &:after {
+    font-family: FontAwesome;
+    content: '\f09b';
+  }
+}
+
+/* specific instagram brand color */
+.fa_circula.instagram,
+.fa_square.instagram {
+  background: rgba(161, 117, 92, 1);
+
+  &:after {
+    font-family: FontAwesome;
+    content: '\f16d';
+  }
+}
+
+/* specific linkedin brand color */
+.fa_circula.linkedin,
+.fa_square.linkedin {
+  background: rgba(13, 124, 183, 1);
+
+  &:after {
+    font-family: FontAwesome;
+    content: '\f0e1';
+  }
+}
+
+/* specific twitter brand color */
+.fa_circula.twitter,
+.fa_square.twitter {
+  background: rgba(87, 195, 255, 1);
+
+  &:after {
+    font-family: FontAwesome;
+    content: '\f099';
+  }
+}
+
+/* specific youtube brand color */
+.fa_circula.youtube,
+.fa_square.youtube {
+  background: rgba(230, 33, 23, 1);
+
+  &:after {
+    font-family: FontAwesome;
+    content: '\f167';
+  }
+}

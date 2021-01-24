@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+get_toast() {
+  echo -e ""
+  echo -e "${_sp}${_bs}${_su} Task:${_rs} ${_ly}toast() ${_rs} \n"
+  echo -e "${_sp}${_yw}${_ar} It waits for parameter the description of the performed task. ${_rs} \n"
+
+  # table
+  echo -e "${_sp}${_line} \n"
+  echo -e "${_sp}${_bs}Details ${_rs} \n"
+  echo -e "${_sp}${_ly}# Call the function ${_rs} \n"
+  echo -e "${_sp}${_yw}toast \"Description of the task\" ${_rs} \n"
+  echo -e "${_sp}${_ly}# Return ${_rs} \n"
+  echo -e "${_sp}${_yw}Displays a notification of success when completing a task. ${_rs} \n"
+  echo -e "${_sp}${_yw}${_ar} Logo ${_rs}"
+  echo -e "${_sp}${_yw}${_ar} Title ${_rs}"
+  echo -e "${_sp}${_yw}${_ar} description ${_rs}"
+  echo -e ""
+  echo -e "${_sp}${_line} \n"
+}

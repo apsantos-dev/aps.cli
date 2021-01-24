@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+requestHTTPAddNewTool() {
+  query=$1
+  curl "http://localhost:5000/tools?${query}" -XPOST
+  # --output "${pwdCLI}/src/log/${_DATE_LOG}.json"
+  clear
+}

@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+makeGit() {
+  optInstall="false"
+
+  active="false"
+  avatarURL="git"
+  avatarURLSTR=${avatarURL// /'__'}
+
+  name="Git"
+  nameSTR=${name// /'__'}
+
+  info="Version control system"
+  infoSTR=${info// /'__'}
+
+  site="https://git-scm.com/"
+  siteSTR=${site// /'__'}
+
+  status=${NOT_FOUND}
+
+  version=""
+
+  if ( git --version > /dev/null 2>&1 ); then
+    active="true"
+    status=${INSTALLED}
+    version=$(git --version 2>&1 | head -n 1)
+  fi
+
+  if [ "$1" == "-i" ]; then
+    status=${INSTALLING}
+    optInstall="true"
+  fi
+
+  statusSTR=${status// /'__'}
+  versionSTR=${version// /'__'}
+
+  query="active=${active}&avatarURL=${avatarURLSTR}&name=${nameSTR}&info=${infoSTR}&site=${siteSTR}&status=${statusSTR}&version=${versionSTR}"
+
+  requestHTTPAddNewTool ${query}
+
+  if [ "${optInstall}" == "true" ]; then
+    installGit
+  fi
+}
+
+installGit() {
+  # remove
+  sudo dnf remove git -y
+
+  # install
+  sudo dnf install git-all -y
+
+  makeGit
+}

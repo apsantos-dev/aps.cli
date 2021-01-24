@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+makePython() {
+  optInstall="false"
+
+  active="false"
+  avatarURL="python"
+  avatarURLSTR=${avatarURL// /'__'}
+
+  name="Python"
+  nameSTR=${name// /'__'}
+
+  info="Python Software Foundation"
+  infoSTR=${info// /'__'}
+
+  site="https://www.python.org/"
+  siteSTR=${site// /'__'}
+
+  status=${NOT_FOUND}
+  version=""
+
+  if ( python --version > /dev/null 2>&1 ); then
+    active="true"
+    status=${INSTALLED}
+    version=$(python --version 2>&1 | head -n 1)
+  fi
+
+  if [ "$1" == "-i" ]; then
+    status=${INSTALLING}
+    optInstall="true"
+  fi
+
+  statusSTR=${status// /'__'}
+  versionSTR=${version// /'__'}
+
+  query="active=${active}&avatarURL=${avatarURLSTR}&name=${nameSTR}&info=${infoSTR}&site=${siteSTR}&status=${statusSTR}&version=${versionSTR}"
+
+  requestHTTPAddNewTool ${query}
+
+  if [ "${optInstall}" == "true" ]; then
+    installPython
+  fi
+}
+
+installPython() {
+  # remove
+  sudo dnf remove python -y
+
+  # install
+  sudo dnf install python -y
+
+  makePython
+}

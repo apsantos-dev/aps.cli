@@ -1,0 +1,12 @@
+.header {
+  color: var(--color-text-title);
+  color: rgba(41, 47, 61, 0.8);
+  margin: 0 20px;
+  padding: 15px 0;
+  text-shadow: 1px 1px rgba(49, 56, 72, 0.2);
+
+  & p {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}

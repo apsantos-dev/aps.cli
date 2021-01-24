@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+makeNode() {
+  active="true"
+  avatarURL="node"
+  avatarURLSTR=${avatarURL// /'__'}
+
+  name="Node.js"
+  nameSTR=${name// /'__'}
+
+  info="OpenJS Foundation"
+  infoSTR=${info// /'__'}
+
+  site="https://nodejs.org/en/"
+  siteSTR=${site// /'__'}
+
+  status="installed"
+
+  version=$(node --version 2>&1 | head -n 1)
+  versionSTR=${version// /'__'}
+
+  query="active=${active}&avatarURL=${avatarURLSTR}&name=${nameSTR}&info=${infoSTR}&site=${siteSTR}&status=${status}&version=${versionSTR}"
+
+  requestHTTPAddNewTool ${query}
+}
