@@ -20,10 +20,10 @@ The main objective of this project is to create a CLI capable of identifying too
 
 > Some tools used:
 
-| | | | | | | | |
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| ![Fedora](/assets/images/md/fedora.png "Fedora") | ![gimp](/assets/images/md/gimp.png "Gimp") | ![git](/assets/images/md/git.png "Git") | ![node](/assets/images/md/node.png "Node.Js") | ![npm](/assets/images/md/npm.png "NPM") | ![postman](/assets/images/md/postman.png "Postman") | ![python](/assets/images/md/python.png "Python") | ![vscode](/assets/images/md/vscode.png "Visual Studio Code") |
-| ![yarn](/assets/images/md/yarn.png "Yarn") | |  |  |  |  |  |  |  |
+| | | | | | | | | | |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| <img src="./app/web/public/assets/images/capacitor.png" alt="capacitor" width="36" /> | <img src="./app/web/public/assets/images/cordova.png" alt="cordova" width="36" /> | <img src="./app/web/public/assets/images/fedora.png" alt="fedora" width="36" /> | <img src="./app/web/public/assets/images/flutter.png" alt="flutter" width="36" /> | <img src="./app/web/public/assets/images/gimp.png" alt="gimp" width="36" /> | <img src="./app/web/public/assets/images/git.png" alt="git" width="36" /> | <img src="./app/web/public/assets/images/ionic.png" alt="ionic" width="36" /> | <img src="./app/web/public/assets/images/node.png" alt="node" width="36" /> | <img src="./app/web/public/assets/images/npm.png" alt="npm" width="36" /> | <img src="./app/web/public/assets/images/postman.png" alt="postman" width="36" /> |
+| <img src="./app/web/public/assets/images/python.png" alt="python" width="36" /> | <img src="./app/web/public/assets/images/vscode.png" alt="vscode" width="36" /> | <img src="./app/web/public/assets/images/yarn.png" alt="yarn" width="36" /> | | | | | | | |
 
 ---
 

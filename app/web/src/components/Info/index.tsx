@@ -20,8 +20,6 @@ const Info: React.FC<Props> = (props: Props) => {
     CONSTANTS.GENERIC.startNumber
   );
   const { payload } = props;
-  // FIXME - DELETE
-  console.log('payload', payload);
 
   useEffect(() => {
     if (util.checkResponseArray(payload)) {

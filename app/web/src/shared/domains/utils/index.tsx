@@ -8,13 +8,9 @@ import {
 } from 'src/shared/domains/interfaces/app.interface';
 
 const apsantos = 'assets/images/logo.png';
-const defaultAvatar = 'assets/images/default_avatar.png';
-const fedora = 'assets/images/fedora.png';
-const node = 'assets/images/node.png';
-const vscode = 'assets/images/vscode.png';
 
 export { FaFacebookF, FiCheckCircle, FiXCircle, FiLoader, FiInfo };
-export { apsantos, defaultAvatar, fedora, node, vscode };
+export { apsantos };
 
 export * from './data-cli.mock';
 
