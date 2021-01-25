@@ -34,6 +34,6 @@ case ${option_cli} in
     makePython \\
     makeSystem \\
     makeYarn \\
+    toast ""
     ;;
-    # toast "" ;;
 esac

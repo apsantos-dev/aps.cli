@@ -4,14 +4,19 @@
 
 The main objective of this project is to create a CLI capable of identifying tools and configurations necessary for the development of web and mobile applications.
 
-> [YouTube: Vídeo em Português - PT_BR](youtube.com)
-
 <!-- Badges section here. -->
 [![License][license-img]][license-ln]
 [![CONTRIBUTING][contributing-img]][contributing-ln]
 [![GitHub stars][github-stars-img]][github-stars-ln]
 [![GitHub forks][github-forks-img]][github-forks-ln]
 [![Twitter Follow][twitter-follow-img]][twitter-follow-ln]
+
+> YouTube: Vídeo em Português - PT_BR
+
+- [Preparando o backend e frontend](https://youtu.be/q-3ysrY-kHM)
+- [Conhecendo o layout da aplicação](https://youtu.be/nedoAP7o4fo)
+- [Gravando registros no banco de dados](https://youtu.be/gn2SH-lxZYc)
+- [Análise da CLI via terminal](https://youtu.be/jt2uCCr4J1U)
 
 > Some tools used:
 

@@ -40,11 +40,11 @@ makeYarn() {
   requestHTTPAddNewTool ${query}
 
   if [ "${optInstall}" == "true" ]; then
-    installPython
+    installYarn
   fi
 }
 
-installPython() {
+installYarn() {
   # remove
   sudo npm uninstall yarn -g
 
