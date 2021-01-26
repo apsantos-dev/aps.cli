@@ -16,20 +16,32 @@ source ${pwdCLI}/src/services/api
 
 readonly option_cli=$1
 readonly params_cli=$2
+readonly params_addition_cli=$3
 
 case ${option_cli} in
-  code) makeCode ${params_cli} ;;
+  # INFO(version control): Git and GitHub
+  commit) makeCommit ${params_cli} "${params_addition_cli}" ;;
+
+  capacitor) makeCapacitor ;;
+  code) makeCode ${params_cli} ;;       # allows installation using the -i flag
+  cordova) makeCordova ;;
+  flutter) makeFlutter ;;
   gimp) makeGimp ;;
-  git) makeGit ${params_cli} ;;
+  git) makeGit ${params_cli} ;;         # allows installation using the -i flag
+  ionic) makeIonic ;;
   node) makeNode && makeNpm ;;
-  python) makePython ${params_cli} ;;
+  python) makePython ${params_cli} ;;   # allows installation using the -i flag
   system) makeSystem ;;
-  yarn) makeYarn ${params_cli} ;;
+  yarn) makeYarn ${params_cli} ;;       # allows installation using the -i flag
 
   -a|--all)
+    makeCapacitor \\
     makeCode \\
+    makeCordova \\
+    makeFlutter \\
     makeGimp \\
     makeGit \\
+    makeIonic \\
     makeNode && makeNpm \\
     makePython \\
     makeSystem \\

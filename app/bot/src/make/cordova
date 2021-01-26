@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+makeCordova() {
+  active="false"
+  avatarURL="cordova"
+  avatarURLSTR=${avatarURL// /'__'}
+
+  name="cordova"
+  nameSTR=${name// /'__'}
+
+  info="Mobile apps with HTML, CSS & JS"
+  infoSTR=${info// /'__'}
+
+  site="https://cordova.apache.org/"
+  siteSTR=${site// /'__'}
+
+  status=${NOT_FOUND}
+  version=""
+
+  if ( cordova --version > /dev/null 2>&1 ); then
+    active="true"
+    status=${INSTALLED}
+    version=$(cordova --version 2>&1 | head -n 1)
+  fi
+
+  statusSTR=${status// /'__'}
+  versionSTR=${version// /'__'}
+
+  query="active=${active}&avatarURL=${avatarURLSTR}&name=${nameSTR}&info=${infoSTR}&site=${siteSTR}&status=${statusSTR}&version=${versionSTR}"
+
+  requestHTTPAddNewTool ${query}
+}

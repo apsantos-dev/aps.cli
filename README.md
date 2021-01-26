@@ -13,10 +13,10 @@ The main objective of this project is to create a CLI capable of identifying too
 
 > YouTube: Vídeo em Português - PT_BR
 
-- [Preparando o backend e frontend](https://youtu.be/q-3ysrY-kHM)
-- [Conhecendo o layout da aplicação](https://youtu.be/nedoAP7o4fo)
-- [Gravando registros no banco de dados](https://youtu.be/gn2SH-lxZYc)
-- [Análise da CLI via terminal](https://youtu.be/jt2uCCr4J1U)
+- [Vídeo 01 - Preparando o backend e frontend - 10:14​](https://youtu.be/q-3ysrY-kHM)
+- [Vídeo 02 - Conhecendo o layout da aplicação - 12:16​](https://youtu.be/nedoAP7o4fo)
+- [Vídeo 03 - Gravando registros no banco de dados - 11:10​](https://youtu.be/gn2SH-lxZYc)
+- [Vídeo final - Análise da CLI via terminal - 15:21​](https://youtu.be/jt2uCCr4J1U)
 
 > Some tools used:
 

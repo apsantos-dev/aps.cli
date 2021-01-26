@@ -6,7 +6,7 @@ makeCode() {
   optInstall="false"
 
   active="false"
-  avatarURL="code"
+  avatarURL="vscode"
   avatarURLSTR=${avatarURL// /'__'}
 
   name="Visual Studio Code"

@@ -1,31 +1,25 @@
-# Change Log
+# Task Report
 
-All notable changes to this project will be documented in this file.
-
-## Release
-
-> v0.0.1-beta (January 24, 2021)
-
-### Added
-
-No files added.
+All tasks performed by **_taskbot_** will be described in this file.
 
 ---
 
-### Changed
+## Informations
 
-No data changed.
+- [add] ✔ Added new tools for analysis.
+
+`✔ step completed.`
+
+> Protocol: **_20210125225422_** \
+> Datetime: **_January 25, 2021 - 22:54:22_**
 
 ---
 
-### Removed
+- [add] ✔ Added new tools for analysis.
 
-No data removed.
+`✔ step completed.`
 
----
-
-### Updated
-
-No data updated.
+> Protocol: **_20210125225520_** \
+> Datetime: **_January 25, 2021 - 22:55:20_**
 
 ---

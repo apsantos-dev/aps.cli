@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+makeCapacitor() {
+  active="false"
+  avatarURL="capacitor"
+  avatarURLSTR=${avatarURL// /'__'}
+
+  name="Capacitor"
+  nameSTR=${name// /'__'}
+
+  info="A cross-platform native runtime for web apps."
+  infoSTR=${info// /'__'}
+
+  site="https://capacitorjs.com/"
+  siteSTR=${site// /'__'}
+
+  status=${NOT_FOUND}
+  version=""
+
+  if ( capacitor --version > /dev/null 2>&1 ); then
+    active="true"
+    status=${INSTALLED}
+    version=$(capacitor --version 2>&1 | head -n 1)
+  fi
+
+  statusSTR=${status// /'__'}
+  versionSTR=${version// /'__'}
+
+  query="active=${active}&avatarURL=${avatarURLSTR}&name=${nameSTR}&info=${infoSTR}&site=${siteSTR}&status=${statusSTR}&version=${versionSTR}"
+
+  requestHTTPAddNewTool ${query}
+}

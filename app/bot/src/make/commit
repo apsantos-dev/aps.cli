@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# shellcheck disable=2155
+# vim: et ts=2 sw=2 ft=sh:
+
+makeCommit() {
+  export FILE_REPORT="CHANGELOG.md"
+  export linesLog=()
+  export infoLog=()
+
+  if [[ -z "$2" ]]; then
+    throw_new_error \
+      "It is necessary to inform 2 parameters: task type and message for the commit" \
+      "\"fix\" \"Fixed issue #123\""
+  fi
+
+  cd ./../../
+
+  if [ ! -f ${FILE_REPORT} ]; then
+    echo -e ""
+    throw_new_error \
+      "Error trying to write log" \
+      "The file could not be found: ${FILE_REPORT}"
+  fi
+
+  # INFO(log): configure data for log recording
+  linesLog+=( "+" "+" "+" )
+  infoLog+=( "- [$1] ${_su} $2" )
+  infoLog+=( "" )
+  infoLog+=( "\`${_su} step completed.\`" )
+
+  _newReportFile >> $FILE_REPORT
+  wait
+
+  _newCommit "$2"
+}
+
+_newReportFile() {
+  local _protocol=`date '+%Y%m%d%H%M%S'`
+  local _dateCustom=`date '+%B %d, %Y - %H:%M:%S'`
+
+  count=( 0 )
+
+  echo ""
+
+  for i in ${linesLog[@]}; do
+    echo -e "${_SP}${infoLog[$count]}"
+    count=$(( count + 1 ))
+  done
+
+  echo ""
+  echo "> Protocol: **_${_protocol}_** \\"
+  echo "> Datetime: **_${_dateCustom}_**"
+  echo ""
+  echo "---"
+}
+
+_newCommit() {
+  git add .
+  git commit -m "$1"
+  git push
+}
