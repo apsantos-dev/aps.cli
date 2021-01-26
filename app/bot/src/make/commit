@@ -56,6 +56,6 @@ _newReportFile() {
 
 _newCommit() {
   git add .
-  git commit -m "$1"
+  git commit -m "[taskbot] : $1"
   git push
 }
