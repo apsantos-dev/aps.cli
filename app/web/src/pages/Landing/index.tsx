@@ -72,6 +72,7 @@ const Landing: React.FC<Props> = () => {
         setLoading(false);
       }
     } catch (error) {
+      setTools([]);
       util.throwNewError(error.message);
     }
   }

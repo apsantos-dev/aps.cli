@@ -3,15 +3,14 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Landing from './pages/Landing';
-import Tools from './pages/Tools';
+import Tool from './pages/Tool';
 
 function Routes() {
   return (
     <BrowserRouter>
       <Switch>
         <Route path='/' exact component={Landing} />
-        <Route path='/tools' component={Tools} />
-        <Route path='/tools/:id' component={Tools} />
+        <Route path='/tool' component={Tool} />
       </Switch>
     </BrowserRouter>
   );
